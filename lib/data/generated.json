@@ -1,0 +1,165 @@
+{
+  "urbanChange": {
+    "width": 1800,
+    "height": 1350,
+    "gsd": 10,
+    "builtUpT1Km2": 9.71,
+    "builtUpT2Km2": 15.08,
+    "builtUpDeltaPct": 55.3,
+    "newBuiltUpKm2": 5.37,
+    "vegetationLossKm2": 5.74,
+    "waterLossKm2": 0.98,
+    "changedFraction": 5.3,
+    "builtRegions": [
+      {
+        "x": 0.6744,
+        "y": 0.2748,
+        "w": 0.2233,
+        "h": 0.4185,
+        "area": 114599
+      },
+      {
+        "x": 0.4211,
+        "y": 0.5896,
+        "w": 0.1256,
+        "h": 0.0815,
+        "area": 13243
+      },
+      {
+        "x": 0.3522,
+        "y": 0.5311,
+        "w": 0.0672,
+        "h": 0.14,
+        "area": 8600
+      },
+      {
+        "x": 0.4056,
+        "y": 0.4696,
+        "w": 0.0594,
+        "h": 0.1148,
+        "area": 6073
+      }
+    ],
+    "vegRegions": [
+      {
+        "x": 0.0633,
+        "y": 0.1289,
+        "w": 0.2289,
+        "h": 0.2607,
+        "area": 67332
+      }
+    ],
+    "waterRegions": []
+  },
+  "crossModal": {
+    "width": 1500,
+    "height": 1500,
+    "gsd": 10,
+    "builtUpKm2": 8.32,
+    "waterKm2": 24.39,
+    "builtUpPct": 3.7,
+    "waterPct": 10.8,
+    "builtRegions": [
+      {
+        "x": 0.5093,
+        "y": 0.0627,
+        "w": 0.448,
+        "h": 0.348,
+        "area": 194515
+      },
+      {
+        "x": 0.1027,
+        "y": 0.538,
+        "w": 0.308,
+        "h": 0.166,
+        "area": 45083
+      }
+    ],
+    "waterRegions": [
+      {
+        "x": 0.0,
+        "y": 0.3887,
+        "w": 1.0,
+        "h": 0.158,
+        "area": 127985
+      },
+      {
+        "x": 0.0487,
+        "y": 0.6927,
+        "w": 0.3527,
+        "h": 0.2007,
+        "area": 115916
+      }
+    ]
+  },
+  "waterChange": {
+    "width": 1600,
+    "height": 1200,
+    "gsd": 10,
+    "waterT1Km2": 20.41,
+    "waterT2Km2": 50.17,
+    "waterDeltaPct": 145.8,
+    "newWaterKm2": 29.76,
+    "affectedBuiltUpKm2": 0.2,
+    "regions": [
+      {
+        "x": 0.1106,
+        "y": 0.3017,
+        "w": 0.6725,
+        "h": 0.3267,
+        "area": 259481
+      },
+      {
+        "x": 0.5138,
+        "y": 0.1817,
+        "w": 0.26,
+        "h": 0.15,
+        "area": 38111
+      }
+    ]
+  },
+  "single": {
+    "width": 1500,
+    "height": 1125,
+    "gsd": 10,
+    "classes": [
+      {
+        "name": "Cropland",
+        "pct": 48.3
+      },
+      {
+        "name": "Built-up",
+        "pct": 3.2
+      },
+      {
+        "name": "Water",
+        "pct": 12.9
+      },
+      {
+        "name": "Forest",
+        "pct": 4.9
+      },
+      {
+        "name": "Bare soil",
+        "pct": 11.2
+      }
+    ],
+    "waterRegions": [
+      {
+        "x": 0.0,
+        "y": 0.5822,
+        "w": 1.0,
+        "h": 0.1724,
+        "area": 127589
+      },
+      {
+        "x": 0.6493,
+        "y": 0.1138,
+        "w": 0.304,
+        "h": 0.2373,
+        "area": 90314
+      }
+    ],
+    "waterKm2": 21.79
+  }
+}
