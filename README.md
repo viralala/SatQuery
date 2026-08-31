@@ -8,6 +8,17 @@ The site communicates the product story — **ask → analyze → explain** — 
 judges, mentors and technical evaluators. The AI backend is not implemented;
 every analysis result shown is pre-computed to illustrate intended behaviour.
 
+## Pages
+
+| Route | What it is |
+| --- | --- |
+| `/` | The product showcase — story, capabilities, interactive demo, deployment tiers |
+| `/business` | Market sizing, unit economics, scaling, government alignment, roadmap |
+| `/workspace` | Google-gated account area; shows a setup panel until OAuth is configured |
+
+`DEPLOY.md` covers pushing to GitHub, deploying to Vercel, and enabling Google
+sign-in. `docs/judge-brief.md` has the demo script and anticipated questions.
+
 ## Run it
 
 ```bash
@@ -108,6 +119,14 @@ node scripts/screenshot.mjs ./shots 1440 900
 
 Requires the dev server running and `npx playwright install chromium`.
 
+## Authentication
+
+Google sign-in is wired with Auth.js v5 but **conditional**: if
+`AUTH_GOOGLE_ID`, `AUTH_GOOGLE_SECRET` and `AUTH_SECRET` are absent, the
+provider list is empty and `/workspace` renders a setup panel. The site builds,
+deploys and renders correctly with no credentials set — a showcase should never
+500 because an OAuth app has not been registered yet. See `.env.example`.
+
 ## Honesty notes
 
 The site is a prototype showcase and says so where it matters:
@@ -116,4 +135,9 @@ The site is a prototype showcase and says so where it matters:
 - demo results are labelled pre-computed, not production predictions;
 - the "Built for" section describes operational roles and the questions they
   ask — it contains no testimonials and no endorsements from real people or
-  organisations.
+  organisations;
+- on `/business`, every figure carries a basis tag: **published target**
+  (government policy or agency statement), **project target** (from the team's
+  own submission), or **team estimate** (a modelling assumption, not a forecast).
+  Verify the published figures against their primary source before citing them —
+  policy targets get revised.

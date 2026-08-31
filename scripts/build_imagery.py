@@ -75,9 +75,9 @@ def build_hero():
     sc.fields((1500, 980, 2540, 1420), n=16, angle=-0.35)
     sc.road_grid((1380, 300, 2100, 800), spacing=104, angle=0.14, width=2)
     sc.urban((1400, 320, 2080, 780), density=0.5, spacing=104, angle=0.14, high=0.22)
-    save(render_optical(sc, haze=0.055, sun=0.62), OUT / "hero-scene.webp", 74,
-         size=(1600, 900))
-    save(render_sar(sc), OUT / "hero-sar.webp", 62, size=(1100, 619))
+    save(render_optical(sc, haze=0.055, sun=0.62), OUT / "hero-scene.webp", 58,
+         size=(1000, 563))
+    save(render_sar(sc), OUT / "hero-sar.webp", 40, size=(620, 349))
 
 
 # ------------------------------------------------- 2. bi-temporal urban pair
@@ -170,7 +170,7 @@ def build_crossmodal():
              high=0.16, seed_shift=11)
 
     save(render_optical(sc), OUT / "cross-optical.webp", 78, size=(1200, 1200))
-    save(render_sar(sc), OUT / "cross-sar.webp", 68, size=(1200, 1200))
+    save(render_sar(sc), OUT / "cross-sar.webp", 52, size=(980, 980))
 
     lab = sc.labels
     built, water = is_built(lab), lab == WATER
