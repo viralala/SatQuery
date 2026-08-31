@@ -106,7 +106,7 @@ export function Plans() {
               <p className="mt-1 text-xs text-white/40">{p.cadence}</p>
             </div>
 
-            <p className="mt-5 min-h-[4.5em] text-sm leading-[1.6] text-white/50">
+            <p className="mt-5 min-h-[5.2em] text-sm leading-[1.6] text-white/50">
               {p.desc}
             </p>
 
