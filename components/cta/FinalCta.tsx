@@ -35,8 +35,8 @@ export function FinalCta() {
             answered with evidence you can see.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <BrandButton label="Explore the demo" href="#demo" />
-            <GhostButton label="View architecture" href="#agent" />
+            <BrandButton label="Explore the demo" href="/#demo" />
+            <GhostButton label="View architecture" href="/#agent" />
           </div>
         </div>
       </motion.div>

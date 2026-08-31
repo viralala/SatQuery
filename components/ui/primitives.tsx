@@ -19,7 +19,7 @@ export function LogoMark({ className = "w-8 h-8" }: { className?: string }) {
 /** White pill CTA: mark, label, chevron that nudges on hover. */
 export function BrandButton({
   label = "Explore SatQuery",
-  href = "#demo",
+  href = "/#demo",
   full = false,
 }: {
   label?: string;

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { CircleUser, Menu, X } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { NAV_LINKS } from "@/lib/data/content";
@@ -26,7 +26,7 @@ export function Nav() {
         aria-label="Primary"
         className="max-w-6xl mx-auto px-6 pt-6 flex items-center justify-between"
       >
-        <Link href="#top" aria-label="SatQuery AI, home" className="text-white">
+        <Link href="/#top" aria-label="SatQuery AI, home" className="text-white">
           <LogoMark />
         </Link>
 
@@ -46,6 +46,13 @@ export function Nav() {
         </div>
 
         <div className="flex items-center gap-2">
+          <Link
+            href="/workspace"
+            aria-label="Workspace"
+            className="hidden md:flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:border-white/25 hover:text-white"
+          >
+            <CircleUser className="w-4 h-4" />
+          </Link>
           <div className="hidden md:block">
             <BrandButton />
           </div>
@@ -69,7 +76,7 @@ export function Nav() {
         <div className="max-w-6xl mx-auto px-6 pt-4">
           <div className="liquid-glass rounded-2xl p-4">
             <ul className="flex flex-col">
-              {NAV_LINKS.map((l) => (
+              {[...NAV_LINKS, { label: "Workspace", href: "/workspace" }].map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}

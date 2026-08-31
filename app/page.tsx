@@ -17,6 +17,7 @@ import { Demo } from "@/components/demo/Demo";
 import { Comparison } from "@/components/why/Comparison";
 import { BuiltFor } from "@/components/audiences/BuiltFor";
 import { InputScopes } from "@/components/scopes/InputScopes";
+import { Plans } from "@/components/pricing/Plans";
 import { Technical } from "@/components/technical/Technical";
 import { FinalCta } from "@/components/cta/FinalCta";
 import { Footer } from "@/components/footer/Footer";
@@ -47,6 +48,7 @@ export default function Home() {
         <Comparison />
         <BuiltFor />
         <InputScopes />
+        <Plans />
         <Technical />
         <FinalCta />
       </main>

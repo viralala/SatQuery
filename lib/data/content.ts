@@ -9,11 +9,12 @@
  */
 
 export const NAV_LINKS = [
-  { label: "Capabilities", href: "#capabilities" },
-  { label: "How It Works", href: "#agent" },
-  { label: "Applications", href: "#applications" },
-  { label: "Demo", href: "#demo" },
-  { label: "Technical", href: "#technical" },
+  { label: "Capabilities", href: "/#capabilities" },
+  { label: "How It Works", href: "/#agent" },
+  { label: "Applications", href: "/#applications" },
+  { label: "Demo", href: "/#demo" },
+  { label: "Pricing", href: "/#plans" },
+  { label: "Business", href: "/business" },
 ] as const;
 
 /* ------------------------------------------------------------- the problem */
