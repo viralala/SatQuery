@@ -2,6 +2,9 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://satquery.ai",
+  ),
   title: "SatQuery AI — Ask Earth. Get intelligence.",
   description:
     "An agentic vision-language assistant for multimodal remote-sensing image analysis through natural-language queries. Single-image, optical–SAR and bi-temporal understanding, returned with visual evidence.",
@@ -18,6 +21,12 @@ export const metadata: Metadata = {
     description:
       "Natural-language questions become remote-sensing intelligence workflows.",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SatQuery AI — Ask Earth. Get intelligence.",
+    description:
+      "Natural-language questions become remote-sensing intelligence workflows.",
   },
 };
 

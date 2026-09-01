@@ -5,7 +5,7 @@ import { CircleUser, Menu, X } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { NAV_LINKS } from "@/lib/data/content";
-import { BrandButton, LogoMark } from "@/components/ui/primitives";
+import { BrandButton, Wordmark } from "@/components/ui/primitives";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -26,8 +26,8 @@ export function Nav() {
         aria-label="Primary"
         className="max-w-6xl mx-auto px-6 pt-6 flex items-center justify-between"
       >
-        <Link href="/#top" aria-label="SatQuery AI, home" className="text-white">
-          <LogoMark />
+        <Link href="/#top" aria-label="SatQuery AI, home">
+          <Wordmark />
         </Link>
 
         <div className="hidden md:flex gap-8">

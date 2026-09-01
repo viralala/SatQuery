@@ -1,17 +1,55 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight, Satellite } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";
 import { useInView } from "@/lib/hooks/useInView";
 
 /* ------------------------------------------------------------------- mark */
-/** Abstract four-quadrant curve mark. */
+/**
+ * SatQuery mark — a query resolved from orbit.
+ *
+ * Four corner brackets frame a scene the way every remote-sensing tool frames
+ * an area of interest; a satellite ground-track sweeps across it on the grid
+ * diagonal; the filled node is the point the question lands on. Drawn on a
+ * 256 unit grid, it stays readable from a 16px favicon to hero scale and
+ * inherits `currentColor` so it works in mono or tinted.
+ */
 export function LogoMark({ className = "w-8 h-8" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 256 256" className={className} fill="currentColor" aria-hidden>
-      <path d="M 0 128 C 70.692 128 128 185.308 128 256 L 64 256 C 64 220.654 35.346 192 0 192 Z M 256 192 C 220.654 192 192 220.654 192 256 L 128 256 C 128 185.308 185.308 128 256 128 Z M 128 0 C 128 70.692 70.692 128 0 128 L 0 64 C 35.346 64 64 35.346 64 0 Z M 192 0 C 192 35.346 220.654 64 256 64 L 256 128 C 185.308 128 128 70.692 128 0 Z" />
+    <svg
+      viewBox="0 0 256 256"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={18}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      {/* Aperture brackets — the framed area of interest. */}
+      <path d="M76 26H26V76" />
+      <path d="M180 26h50v50" />
+      <path d="M230 180v50h-50" />
+      <path d="M76 230H26v-50" />
+      {/* Ground track sweeping across the scene. */}
+      <path d="M40 200 200 40" />
+      {/* Query node where the question resolves. */}
+      <circle cx="128" cy="128" r="26" fill="currentColor" stroke="none" />
     </svg>
+  );
+}
+
+/* --------------------------------------------------------------- wordmark */
+/** Mark plus "SatQuery" set in the site typeface. */
+export function Wordmark({ className = "" }: { className?: string }) {
+  return (
+    <span className={`inline-flex items-center gap-2.5 text-white ${className}`}>
+      <LogoMark className="w-7 h-7" />
+      <span className="text-lg font-semibold tracking-tight">
+        SatQuery
+      </span>
+    </span>
   );
 }
 
@@ -33,7 +71,7 @@ export function BrandButton({
         full ? "w-full" : ""
       }`}
     >
-      <Satellite className="w-4 h-4" strokeWidth={2} />
+      <LogoMark className="w-4 h-4" />
       <span>{label}</span>
       <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-[1px]" />
     </Link>

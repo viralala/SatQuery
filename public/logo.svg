@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="96" viewBox="0 0 420 96" fill="none">
+  <g transform="translate(12 12)" stroke="#00d2ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M27 9H9v18"/>
+    <path d="M63 9h18v18"/>
+    <path d="M81 63v18H63"/>
+    <path d="M27 81H9V63"/>
+    <path d="M22 68 68 22"/>
+  </g>
+  <circle cx="57" cy="57" r="9" fill="#00d2ff"/>
+  <text x="116" y="62" font-family="Inter, system-ui, -apple-system, Segoe UI, sans-serif" font-size="40" font-weight="600" letter-spacing="-1" fill="#ffffff">SatQuery</text>
+</svg>

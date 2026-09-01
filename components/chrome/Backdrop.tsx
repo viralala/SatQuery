@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 /**
  * Fixed cinematic backdrop that sits behind the whole page.
  *
- * The looping video is the primary layer; one of our generated SAR scenes sits
- * underneath it as a still fallback so the page still reads correctly if the
- * remote video is slow, blocked, or fails to decode.
+ * The looping video is the primary layer; the still scene sits underneath it as
+ * a fallback so the page still reads correctly if the remote video is slow,
+ * blocked, or fails to decode.
  *
  * A small control lets visitors drop the moving footage and its darkening
- * overlay, leaving just the still scene. The choice is kept in localStorage so
- * it sticks across pages and reloads.
+ * overlay. The still scene stays, brought up to full colour. The choice is kept
+ * in localStorage so it sticks across pages and reloads.
  */
 export function BackgroundVideo() {
   const [motion, setMotion] = useState(true);
@@ -37,14 +37,16 @@ export function BackgroundVideo() {
   return (
     <>
       <div className="fixed inset-0 z-0 pointer-events-none">
-        {/* Still SAR scene — always shown. */}
+        {/* Still scene — always shown. Dimmed while the video plays over it,
+            brought up to near-full colour once motion is disabled. */}
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url(/imagery/hero-sar.webp)",
+            backgroundImage: "url(/imagery/hero-scene.webp)",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.25,
+            opacity: motion ? 0.25 : 0.6,
+            transition: "opacity 400ms ease",
           }}
           aria-hidden
         />
