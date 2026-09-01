@@ -9,8 +9,9 @@ import { useEffect, useState } from "react";
  * underneath it as a still fallback so the page still reads correctly if the
  * remote video is slow, blocked, or fails to decode.
  *
- * A small control lets visitors freeze the moving footage — the choice is kept
- * in localStorage so it sticks across pages and reloads.
+ * A small control lets visitors drop the moving footage and its darkening
+ * overlay, leaving just the still scene. The choice is kept in localStorage so
+ * it sticks across pages and reloads.
  */
 export function BackgroundVideo() {
   const [motion, setMotion] = useState(true);
@@ -35,40 +36,43 @@ export function BackgroundVideo() {
 
   return (
     <>
-      {/* Motion off: drop the whole backdrop, leaving the plain #0c0c0c page. */}
-      {motion && (
-        <div className="fixed inset-0 z-0 pointer-events-none">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: "url(/imagery/hero-sar.webp)",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              opacity: 0.25,
-            }}
-            aria-hidden
-          />
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            poster="/imagery/hero-scene.webp"
-            className="w-full h-full object-cover pointer-events-none"
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_064122_c4750c0e-7476-4b44-94a2-a85a65c63bf2.mp4"
-          />
-          {/* Hold the page copy legible over whatever frame is showing. */}
-          <div
-            aria-hidden
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(12,12,12,0.62) 0%, rgba(12,12,12,0.78) 45%, rgba(12,12,12,0.92) 100%)",
-            }}
-          />
-        </div>
-      )}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        {/* Still SAR scene — always shown. */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: "url(/imagery/hero-sar.webp)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.25,
+          }}
+          aria-hidden
+        />
+        {/* Moving footage + darkening overlay — only while motion is on. */}
+        {motion && (
+          <>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              poster="/imagery/hero-scene.webp"
+              className="w-full h-full object-cover pointer-events-none"
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_064122_c4750c0e-7476-4b44-94a2-a85a65c63bf2.mp4"
+            />
+            {/* Hold the page copy legible over whatever frame is showing. */}
+            <div
+              aria-hidden
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(12,12,12,0.62) 0%, rgba(12,12,12,0.78) 45%, rgba(12,12,12,0.92) 100%)",
+              }}
+            />
+          </>
+        )}
+      </div>
 
       <button
         type="button"
@@ -76,7 +80,7 @@ export function BackgroundVideo() {
         aria-pressed={motion}
         className="fixed bottom-4 right-4 z-50 text-xs text-white/40 hover:text-white/70 transition-colors"
       >
-        {motion ? "Disable background" : "Enable background"}
+        {motion ? "Disable motion" : "Enable motion"}
       </button>
     </>
   );
